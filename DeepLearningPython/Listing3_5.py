@@ -8,5 +8,5 @@ model.add(layers.Dense(1, activation='sigmoid'))
 
 from keras import optimizers
 model.compile(optimizer=optimizers.RMSprop(lr=0.001),
-loss='binary_crossentropy',
-metrics=['accuracy'])
+    loss='binary_crossentropy',
+    metrics=['accuracy'])
