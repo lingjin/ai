@@ -101,3 +101,9 @@ predictions = model.predict(x_test)
 print(predictions[0].shape)
 print(np.sum(predictions[0]))
 print(np.argmax(predictions[0]))
+
+y_train = np.array(train_labels)
+y_test = np.array(test_labels)
+model.compile(optimizer='rmsprop',
+    loss='sparse_categorical_crossentropy',
+    metrics=['acc'])
