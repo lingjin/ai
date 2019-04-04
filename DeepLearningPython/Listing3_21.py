@@ -90,3 +90,9 @@ model.fit(partial_x_train,
     validation_data=(x_val, y_val))
 results = model.evaluate(x_test, one_hot_test_labels)
 print(results)
+
+import copy
+test_labels_copy = copy.copy(test_labels)
+np.random.shuffle(test_labels_copy)
+hits_array = np.array(test_labels) == np.array(test_labels_copy)
+print(float(np.sum(hits_array)) / len(test_labels))
