@@ -29,6 +29,9 @@ num_val_samples = len(train_data) // k
 
 num_epochs = 500
 all_mae_histories = []
+
+import timeit
+start = timeit.default_timer()
 for i in range(k):
     print('processing fold #', i)
     val_data = train_data[i * num_val_samples: (i + 1) * num_val_samples]
@@ -54,6 +57,9 @@ print(np.mean(all_mae_histories))
 average_mae_history = [
     np.mean([x[i] for x in all_mae_histories]) for i in range(num_epochs)]
 print(average_mae_history)
+
+stop = timeit.default_timer()
+print('Time: ', stop - start) 
 
 import matplotlib.pyplot as plt
 plt.plot(range(1, len(average_mae_history) + 1), average_mae_history)
