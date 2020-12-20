@@ -48,7 +48,7 @@ for i in range(k):
     history = model.fit(partial_train_data, partial_train_targets,
         validation_data=(val_data, val_targets),
         epochs=num_epochs, batch_size=1, verbose=0)
-    mae_history = history.history['val_mae']
+    mae_history = history.history['val_mean_absolute_error']
     all_mae_histories.append(mae_history)
 
 print(all_mae_histories)
